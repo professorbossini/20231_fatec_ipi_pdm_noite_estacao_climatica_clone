@@ -5,17 +5,25 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 class App extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      latitude: null,
-      longitude: null,
-      estacao: null,
-      data: null,
-      icone: null
-    }
-    console.log('constructor')
+  state = {
+    latitude: null,
+    longitude: null,
+    estacao: null,
+    data: null,
+    icone: null,
+    mensagemDeErro: null
   }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     latitude: null,
+  //     longitude: null,
+  //     estacao: null,
+  //     data: null,
+  //     icone: null
+  //   }
+  //   console.log('constructor')
+  // }
 
   componentDidMount(){
     this.obterLocalizacao()
