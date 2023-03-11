@@ -95,7 +95,8 @@ class App extends React.Component{
           {/* .card>.card-body */}
           {
             (!this.state.latitude && !this.state.mensagemDeErro) ?
-              <Loading />
+              <Loading 
+                mensagem="Por favor, responda à solicitação de localização"/>
             :
             this.state.mensagemDeErro ?
             // p.border.rounded.p-2.fs-1.text-center
