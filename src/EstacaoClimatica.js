@@ -1,8 +1,27 @@
 // rce
 import React, { Component } from 'react'
+// imrd
+import ReactDOM from 'react-dom'
 
 export class EstacaoClimatica extends Component {
+  state = {
+    data: null
+  }
+  
+  timer = null
+
+  componentDidMount(){
+    this.timer = setInterval(() => {
+      this.setState({data: new Date().toLocaleTimeString()})
+    }, 1000)
+    console.log(this.timer)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.timer)
+  }
   render() {
+    console.log('render')
     return (
       <div className="card">
         <div className="card-body">
@@ -17,7 +36,7 @@ export class EstacaoClimatica extends Component {
             <p className="text-center">
               {
                 this.props.latitude ?
-                  `Coordenadas: ${this.props.latitude}, ${this.props.longitude}. Data: ${this.props.data}.`
+                  `Coordenadas: ${this.props.latitude}, ${this.props.longitude}. Data: ${this.state.data}.`
                   : this.props.mensagemDeErro ?
                     `${this.props.mensagemDeErro}`
                     :
